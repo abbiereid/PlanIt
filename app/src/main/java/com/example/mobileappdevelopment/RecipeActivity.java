@@ -46,7 +46,7 @@ public class RecipeActivity extends AppCompatActivity {
 
         db = new dbHandlerRecipes(this);
 
-       /*/ db.addRecipe(macAndCheese);
+       db.addRecipe(macAndCheese);
         db.addRecipe(spagBol);
         db.addRecipe(pancakes);
         db.addRecipe(chickenCurry);
@@ -63,7 +63,7 @@ public class RecipeActivity extends AppCompatActivity {
         db.addRecipe(spinachSmoothie);
         db.addRecipe(BBQChickenPizza);
         db.addRecipe(vegetableQuinoaBowl);
-        db.addRecipe(chickenFajitas); /*/
+        db.addRecipe(chickenFajitas);
 
 
         recyclerView = findViewById(R.id.recipeView);
