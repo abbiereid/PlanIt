@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
@@ -44,7 +45,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         Intent intent = new Intent(context, IndividualRecipeActivity.class);
         intent.putExtra("id",recipe.getID());
         intent.putExtra("name", recipe.getName());
-        intent.putExtra("ingredients",recipe.getIngredients());
         intent.putExtra("instructions",recipe.getInstructions());
         context.startActivity(intent);
     }

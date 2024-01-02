@@ -16,10 +16,10 @@ import java.util.List;
 
 public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHolder> {
 
-    private HashMap<String, String> ingredients;
+    private HashMap<String, Integer> ingredients;
     private Context context;
 
-    public ShoppingAdapter(HashMap<String, String> ingredients, Context context) {
+    public ShoppingAdapter(HashMap<String, Integer> ingredients, Context context) {
         this.context = context;
         this.ingredients = ingredients;
     }
@@ -36,9 +36,9 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
     public void onBindViewHolder(@NonNull ShoppingAdapter.ViewHolder holder, int position) {
         List<String> ingredientNames = new ArrayList<>(ingredients.keySet());
         String ingredientName = ingredientNames.get(position);
-        String ingredientAmount = ingredients.get(ingredientName);
+        Integer ingredientAmount = ingredients.get(ingredientName);
 
-        String text =  ingredientName + " - " + ingredientAmount;
+        String text =  ingredientName + " - " + ingredientAmount + " g ";
         holder.shoppingItemTextView.setText(text);
 
     }

@@ -3,13 +3,11 @@ package com.example.mobileappdevelopment;
 public class Recipe {
         int id;
         String name;
-        String ingredients;
         String instructions;
 
-        public Recipe(int id, String name, String ingredients, String instructions) {
+        public Recipe(int id, String name, String instructions) {
             this.id = id;
             this.name = name;
-            this.ingredients = ingredients;
             this.instructions = instructions;
         }
 
@@ -22,9 +20,6 @@ public class Recipe {
             return name;
         }
 
-        public String getIngredients() {
-            return ingredients;
-        }
 
         public String getInstructions() {
             return instructions;
@@ -36,10 +31,6 @@ public class Recipe {
 
     public void setName(String string) {
             this.name = name;
-    }
-
-    public void setIngredients(String string) {
-            this.ingredients = ingredients;
     }
 
     public void setInstructions(String string) {

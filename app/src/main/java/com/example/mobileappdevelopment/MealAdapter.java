@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
@@ -18,6 +19,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
     private List<Recipe> meals;
     private Context context;
     private int dayIndex = 0;
+
 
     public MealAdapter(List<Recipe> meals,Context context) {
         this.context = context;
@@ -43,13 +45,18 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
             launchIndividualRecipe(recipe);
         });
 
+        holder.deleteButton.setOnClickListener(v -> {
+            dbHandlerRecipes dbHelper = new dbHandlerRecipes(context);
+            dbHelper.deleteMeal(recipe);
+            notifyDataSetChanged();
+        });
+
     }
 
     public void launchIndividualRecipe(Recipe recipe) {
         Intent intent = new Intent(context, IndividualRecipeActivity.class);
         intent.putExtra("id",recipe.getID());
         intent.putExtra("name", recipe.getName());
-        intent.putExtra("ingredients",recipe.getIngredients());
         intent.putExtra("instructions",recipe.getInstructions());
         context.startActivity(intent);
     }

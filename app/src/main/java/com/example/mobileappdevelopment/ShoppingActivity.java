@@ -1,6 +1,8 @@
 package com.example.mobileappdevelopment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,11 +29,17 @@ public class ShoppingActivity  extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(shoppingAdapter);
 
+        ImageView home = findViewById(R.id.homeButton);
+        home.setOnClickListener(view -> {
+            Intent intent = new Intent(ShoppingActivity.this,MainActivity.class);
+            startActivity(intent);
+        });
 
     }
 
-    private HashMap<String,String> getData(dbHandlerRecipes db) {
-        HashMap<String,String> ingredients = db.readIngredients();
+    public HashMap<String,Integer> getData(dbHandlerRecipes db) {
+        HashMap<String,Integer> ingredients = db.readShopping();
         return ingredients;
     }
+
 }
